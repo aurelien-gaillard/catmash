@@ -1,15 +1,16 @@
+'use client'
+import React from 'react'
 import BottomNavigation from '@/components/BottomNavigation/BottomNavigation'
 import PageLayout from '@/components/PageLayout/PageLayout'
 import { routes } from '@/utils/routes'
 
-export default function Homepage() {
+const RankingsPage = () => {
   return (
     <PageLayout>
-      homepage
-      <BottomNavigation
-        href={routes['/rankings']}
-        label='Voir le classement des chats'
-      />
+      rankings
+      <BottomNavigation href={routes['/']} label='Revenir au vote' />
     </PageLayout>
   )
 }
+
+export default RankingsPage
