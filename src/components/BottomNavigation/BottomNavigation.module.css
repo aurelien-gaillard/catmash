@@ -19,3 +19,20 @@
 .button:hover {
   background-color: var(--color-secondary-dark);
 }
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  font-size: var(--font-size-lg);
+}
+
+.subtext {
+  font-size: var(--font-size-sm);
+  font-weight: normal;
+  opacity: 0.8;
+  margin-top: 2px;
+}
