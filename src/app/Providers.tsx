@@ -1,6 +1,6 @@
 'use client'
 import { useCatStore } from '@/store/useCatStore'
-import React, { ReactNode, useEffect } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 
 type Props = {
   children: ReactNode
@@ -8,6 +8,7 @@ type Props = {
 
 const Providers = ({ children }: Props) => {
   const setCats = useCatStore((state) => state.setCats)
+  const [isLoading, setIsLoading] = useState(true)
 
   // Fetch cats and initialized count with the app mounts
   useEffect(() => {
@@ -23,6 +24,7 @@ const Providers = ({ children }: Props) => {
           })
         )
         setCats(catsWithVotes)
+        setIsLoading(false)
       } catch (error) {
         console.error('Failed to fetch cats:', error)
       }
@@ -31,6 +33,7 @@ const Providers = ({ children }: Props) => {
     fetchCats()
   }, [setCats])
 
+  if (isLoading) return
   return <>{children}</>
 }
 

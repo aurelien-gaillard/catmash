@@ -10,8 +10,9 @@ type CatImage = {
 type CatStore = {
   cats: CatImage[]
   setCats: (cats: CatImage[]) => void
-  voteForCat: (id: string, delta: number) => void
+  voteForCat: (id: string) => void
   getTotalVotes: () => number
+  getTwoRandomCats: () => CatImage[]
 }
 
 export const useCatStore = create<CatStore>((set, get) => ({
@@ -20,10 +21,17 @@ export const useCatStore = create<CatStore>((set, get) => ({
   voteForCat: (id) =>
     set((state) => ({
       cats: state.cats.map((cat) =>
-        cat.id === id ? { ...cat, vote: cat.votes + 1 } : cat
+        cat.id === id ? { ...cat, votes: cat.votes + 1 } : cat
       ),
     })),
   getTotalVotes: () => {
     return get().cats.reduce((sum, cat) => sum + cat.votes, 0)
+  },
+  getTwoRandomCats: () => {
+    const cats = get().cats
+    if (cats.length < 2) return []
+
+    const shuffled = [...cats].sort(() => 0.5 - Math.random())
+    return shuffled.slice(0, 2)
   },
 }))

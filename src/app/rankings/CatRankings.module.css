@@ -1,0 +1,95 @@
+.main {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  min-height: 100vh;
+  padding: var(--spacing-xl);
+  font-family: var(--font-main);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heading {
+  font-size: var(--font-size-xxl);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xl);
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.subheading {
+  display: block;
+  font-size: var(--font-size-md);
+  font-weight: normal;
+}
+
+.catGrid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.catCard {
+  position: relative;
+  cursor: pointer;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--color-card-background);
+  padding: var(--spacing-md);
+  max-width: 400px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.catCard:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-lg);
+}
+
+.imageWrapper {
+  position: relative;
+  height: 300px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.catName {
+  margin-top: var(--spacing-md);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  color: var(--color-secondary);
+}
+
+.voteTag {
+  margin-top: var(--spacing-sm);
+  padding: 0.5rem 1rem;
+  background-color: var(--color-accent);
+  color: white;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  font-weight: bold;
+}
+
+.rankingsButton {
+  margin-top: var(--spacing-xxl);
+  padding: 1rem 2rem;
+  background-color: var(--color-secondary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.rankingsButton:hover {
+  transform: translateY(-3px);
+  background-color: var(--color-secondary-dark);
+}
