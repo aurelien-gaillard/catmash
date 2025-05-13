@@ -1,3 +1,5 @@
+/* CatRankings.module.css */
+
 .main {
   background-color: var(--color-background);
   color: var(--color-text);
@@ -19,77 +21,72 @@
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
 }
 
-.subheading {
-  display: block;
-  font-size: var(--font-size-md);
-  font-weight: normal;
-}
-
-.catGrid {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+.rankingsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: var(--spacing-xl);
-  flex-wrap: wrap;
+  margin-bottom: var(--spacing-xl);
 }
 
-.catCard {
+@media (min-width: 768px) {
+  .rankingsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
   position: relative;
-  cursor: pointer;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
   background: var(--color-card-background);
-  padding: var(--spacing-md);
-  max-width: 400px;
-  width: 100%;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-.catCard:hover {
-  transform: scale(1.03);
+.card:hover {
+  transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
 }
 
-.imageWrapper {
+.imageContainer {
   position: relative;
-  height: 300px;
-  border-radius: var(--radius-md);
+  height: 250px;
+  width: 100%;
   overflow: hidden;
 }
 
-.catName {
-  margin-top: var(--spacing-md);
-  font-size: var(--font-size-lg);
-  font-weight: bold;
-  color: var(--color-secondary);
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.voteTag {
-  margin-top: var(--spacing-sm);
-  padding: 0.5rem 1rem;
-  background-color: var(--color-accent);
-  color: white;
-  border-radius: var(--radius-full);
-  display: inline-block;
-  font-weight: bold;
-}
-
-.rankingsButton {
-  margin-top: var(--spacing-xxl);
-  padding: 1rem 2rem;
-  background-color: var(--color-secondary);
-  color: white;
-  border: none;
-  border-radius: var(--radius-md);
+.rankBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   font-size: var(--font-size-lg);
   font-weight: bold;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-muted);
+  color: var(--color-text);
   box-shadow: var(--shadow-sm);
-  transition: transform 0.2s, background-color 0.2s;
 }
 
-.rankingsButton:hover {
-  transform: translateY(-3px);
-  background-color: var(--color-secondary-dark);
+.votesBadge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-weight: bold;
+  box-shadow: var(--shadow-sm);
 }
